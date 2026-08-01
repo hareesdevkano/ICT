@@ -51,10 +51,14 @@ const Hero = () => (
       </motion.p>
       <motion.h1
         initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.1 }}
-        className="font-display font-bold text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[9.2vw] leading-[0.88] tracking-tighter uppercase"
+        className="font-display font-bold text-[clamp(2.4rem,11.5vw,4.5rem)] md:text-[10vw] lg:text-[9.2vw] leading-[0.9] md:leading-[0.88] tracking-tighter uppercase [text-wrap:balance] md:[text-wrap:initial]"
       >
-        ENGINEERING <span className="text-stroke">AFRICA'S</span><br className="hidden md:block" />
-        <span className="gradient-text">DIGITAL</span> BACKBONE.
+        <span className="block md:inline">ENGINEERING</span>{" "}
+        <span className="text-stroke block md:inline">AFRICA'S</span>
+        <br className="hidden md:block" />
+        <span className="block md:inline">
+          <span className="gradient-text">DIGITAL</span> BACKBONE.
+        </span>
       </motion.h1>
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}
@@ -63,11 +67,11 @@ const Hero = () => (
         <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed">
           A full-spectrum ICT, software and creative firm headquartered in Kano — delivering enterprise-grade infrastructure, secure platforms and brand systems for governments, banks and growth-stage businesses across Nigeria and beyond.
         </p>
-        <div className="flex flex-wrap gap-3 sm:gap-4">
-          <a href="#contact" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.2em] uppercase font-medium hover:bg-secondary transition-colors">
+        <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-3 sm:gap-4 w-full lg:w-auto">
+          <a href="#contact" className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-6 sm:px-8 py-4 text-xs sm:text-sm tracking-[0.2em] uppercase font-medium hover:bg-secondary transition-colors">
             Start a Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="#services" className="inline-flex items-center gap-3 border border-foreground/20 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.2em] uppercase hover:border-foreground transition-colors">
+          <a href="#services" className="inline-flex items-center justify-center gap-3 border border-foreground/20 px-6 sm:px-8 py-4 text-xs sm:text-sm tracking-[0.2em] uppercase hover:border-foreground transition-colors">
             Our Services
           </a>
         </div>
@@ -112,21 +116,21 @@ const Services = () => (
             key={s.title}
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.05 }}
-            className="group bg-background p-6 sm:p-8 lg:p-10 hover:bg-card transition-colors relative overflow-hidden min-h-[260px] sm:min-h-[320px] lg:min-h-[340px] flex flex-col"
+            className="group bg-background p-6 sm:p-8 lg:p-10 hover:bg-card transition-colors relative overflow-hidden sm:min-h-[320px] lg:min-h-[340px] flex flex-col"
           >
             {s.img && (
               <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700">
                 <img src={s.img} alt="" loading="lazy" className="w-full h-full object-cover" />
               </div>
             )}
-            <div className="relative flex items-start justify-between mb-8 sm:mb-12">
+            <div className="relative flex items-start justify-between mb-6 sm:mb-12">
               <s.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary" strokeWidth={1.2} />
               <span className="font-display text-[10px] sm:text-xs tracking-widest text-muted-foreground">/{s.tag}</span>
             </div>
             <div className="relative mt-auto">
               <h3 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl uppercase mb-3 sm:mb-4 tracking-tight">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              <div className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="mt-6 hidden lg:inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                 Learn more <ArrowUpRight className="w-3 h-3" />
               </div>
             </div>
@@ -211,7 +215,7 @@ const Work = () => (
             transition={{ duration: 0.6, delay: i * 0.1 }}
             className="group block border border-border bg-card hover:border-primary/50 transition-colors overflow-hidden"
           >
-            <div className={`aspect-[16/10] md:aspect-[4/3] bg-gradient-to-br ${c.color} bg-grid relative flex items-end p-4 md:p-6`}>
+            <div className={`aspect-[21/8] sm:aspect-[16/10] md:aspect-[4/3] bg-gradient-to-br ${c.color} bg-grid relative flex items-end p-4 md:p-6`}>
               <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-foreground/70">{c.tag}</span>
             </div>
             <div className="p-5 sm:p-6 lg:p-8">
@@ -278,7 +282,7 @@ const CTA = () => (
     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, hsl(188 95% 55% / 0.15), transparent 70%)' }} />
     <div className="relative max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-12 text-center">
       <p className="text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase text-primary mb-6 md:mb-8">— Let's build</p>
-      <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[10rem] leading-[0.88] uppercase tracking-tighter mb-6 md:mb-10">
+      <h2 className="font-display font-bold text-[clamp(2.1rem,10vw,3.5rem)] md:text-6xl lg:text-[10rem] leading-[0.92] md:leading-[0.88] uppercase tracking-tighter mb-6 md:mb-10">
         READY TO <br className="hidden md:block" /><span className="gradient-text">ENGINEER</span><br className="hidden md:block" /> YOUR EDGE?
       </h2>
       <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 md:mb-12">
