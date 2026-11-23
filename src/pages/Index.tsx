@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, Network, Code2, ShieldCheck, Cpu, Cloud, GraduationCap, Plus, Palette, Globe, Megaphone, Camera, MessageCircle, Mail } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import NetworkGlobe from "@/components/NetworkGlobe";
 import heroImg from "@/assets/hero-network.jpg";
 import svcNetwork from "@/assets/svc-network.jpg";
 import svcSoftware from "@/assets/svc-software.jpg";
@@ -35,51 +37,53 @@ const _NavOld = () => (
 );
 
 const Hero = () => (
-  <section className="relative min-h-[100svh] flex flex-col justify-center lg:justify-end overflow-hidden pt-20 pb-12 lg:pb-24">
-    <div className="absolute inset-0">
-      <img src={heroImg} alt="Server infrastructure" className="w-full h-full object-cover opacity-40" width={1920} height={1088} />
-      <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
-      <div className="absolute inset-0 bg-grid opacity-20" />
+  <section className="relative isolate min-h-[100svh] overflow-hidden border-b border-border pt-24 pb-10 sm:pt-28 lg:flex lg:items-center lg:pt-24 lg:pb-12">
+    <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+      <img src={heroImg} alt="" className="absolute inset-0 h-full w-full object-cover object-center opacity-20" width={1920} height={1088} />
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/55" />
+      <div className="absolute inset-0 bg-grid opacity-10" />
     </div>
 
-    <div className="relative max-w-[1400px] mx-auto w-full px-6 lg:px-12">
-      <motion.p
-        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-        className="text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase text-primary mb-6 lg:mb-8 flex items-center gap-3"
-      >
-        <span className="w-6 sm:w-8 h-px bg-primary" /> ICT Services • Kano, Nigeria
-      </motion.p>
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.1 }}
-        className="font-display font-bold text-[clamp(2.4rem,11.5vw,4.5rem)] md:text-[10vw] lg:text-[9.2vw] leading-[0.9] md:leading-[0.88] tracking-tighter uppercase [text-wrap:balance] md:[text-wrap:initial]"
-      >
-        <span className="block md:inline">ENGINEERING</span>{" "}
-        <span className="text-stroke block md:inline">AFRICA'S</span>
-        <br className="hidden md:block" />
-        <span className="block md:inline">
-          <span className="gradient-text">DIGITAL</span> BACKBONE.
-        </span>
-      </motion.h1>
-      <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}
-        className="mt-8 lg:mt-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8"
-      >
-        <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed">
-          A full-spectrum ICT, software and creative firm headquartered in Kano — delivering enterprise-grade infrastructure, secure platforms and brand systems for governments, banks and growth-stage businesses across Nigeria and beyond.
-        </p>
-        <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-3 sm:gap-4 w-full lg:w-auto">
-          <a href="#contact" className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-6 sm:px-8 py-4 text-xs sm:text-sm tracking-[0.2em] uppercase font-medium hover:bg-secondary transition-colors">
-            Start a Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a href="#services" className="inline-flex items-center justify-center gap-3 border border-foreground/20 px-6 sm:px-8 py-4 text-xs sm:text-sm tracking-[0.2em] uppercase hover:border-foreground transition-colors">
-            Our Services
-          </a>
-        </div>
-      </motion.div>
-    </div>
+    <div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-2 px-5 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:gap-0 lg:px-12">
+      <div className="relative z-10 order-2 py-2 sm:py-4 lg:order-1 lg:py-10">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
+          className="mb-5 flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-primary sm:text-xs"
+        >
+          <span className="h-px w-7 bg-primary" /> ICT &amp; digital services · Kano, Nigeria
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.08 }}
+          className="max-w-3xl font-display text-[clamp(2.65rem,11.5vw,4.5rem)] font-bold uppercase leading-[0.98] sm:text-6xl lg:text-[5.25rem] xl:text-[6.1rem] [text-wrap:balance]"
+        >
+          Engineering the systems <span className="gradient-text">behind progress.</span>
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.28 }}
+          className="mt-6 max-w-xl"
+        >
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg">
+            Dependable ICT infrastructure, software, project websites and brand systems for public institutions and ambitious businesses across Nigeria.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button asChild size="lg" className="h-12 w-full justify-between rounded-sm px-5 text-xs uppercase tracking-[0.1em] sm:w-auto sm:justify-center">
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                Start a conversation <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="h-12 w-full rounded-sm border-foreground/25 bg-background/40 px-5 text-xs uppercase tracking-[0.1em] sm:w-auto">
+              <a href="#services">Explore our services</a>
+            </Button>
+          </div>
+          <p className="mt-5 text-[10px] uppercase tracking-[0.16em] text-muted-foreground sm:text-xs">
+            Kano-based team <span className="mx-2 text-primary">/</span> Nationwide delivery
+          </p>
+        </motion.div>
+      </div>
 
-    <div className="absolute bottom-6 right-6 text-[10px] tracking-[0.3em] uppercase text-muted-foreground rotate-90 origin-bottom-right hidden lg:block">
-      Scroll to explore →
+      <div className="order-1 h-[230px] min-w-0 sm:h-[290px] lg:order-2 lg:h-[min(72vh,640px)] lg:min-h-[480px]">
+        <NetworkGlobe />
+      </div>
     </div>
   </section>
 );
@@ -277,7 +281,7 @@ const FAQ = () => {
 };
 
 const CTA = () => (
-  <section id="contact" className="relative py-16 md:py-24 lg:py-40 overflow-hidden">
+  <section id="contact" className="relative scroll-mt-20 py-16 md:py-24 lg:py-40 overflow-hidden">
     <div className="absolute inset-0 bg-grid opacity-10" />
     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, hsl(188 95% 55% / 0.15), transparent 70%)' }} />
     <div className="relative max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-12 text-center">
@@ -465,11 +469,8 @@ const Partners = () => (
 );
 
 const Index = () => (
-  <main className="relative bg-ambient text-foreground overflow-hidden">
-    <div className="orb animate-drift" style={{ width: 520, height: 520, background: 'hsl(188 95% 55%)', top: '15%', left: '-12%' }} />
-    <div className="orb animate-drift" style={{ width: 460, height: 460, background: 'hsl(30 95% 58%)', top: '55%', right: '-10%', animationDelay: '-6s' }} />
-    <div className="orb animate-drift" style={{ width: 600, height: 600, background: 'hsl(260 80% 60%)', bottom: '5%', left: '30%', animationDelay: '-3s', opacity: 0.3 }} />
-    <div className="absolute inset-0 bg-noise opacity-[0.35] pointer-events-none mix-blend-overlay" />
+  <main className="relative overflow-hidden bg-background text-foreground">
+    <div className="pointer-events-none absolute inset-0 bg-noise opacity-[0.18]" aria-hidden="true" />
     <div className="relative">
       <Nav />
       <Hero />
