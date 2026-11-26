@@ -44,26 +44,26 @@ const Hero = () => (
       <div className="absolute inset-0 bg-grid opacity-10" />
     </div>
 
-    <div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-2 px-5 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:gap-0 lg:px-12">
-      <div className="relative z-10 order-2 py-2 sm:py-4 lg:order-1 lg:py-10">
+    <div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-2 px-5 sm:px-6 md:grid-cols-[1.08fr_0.92fr] md:gap-3 lg:grid-cols-[1.02fr_0.98fr] lg:gap-0 lg:px-12">
+      <div className="relative z-10 order-1 py-2 sm:py-4 lg:py-10">
         <motion.p
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="mb-5 flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-primary sm:text-xs"
         >
-          <span className="h-px w-7 bg-primary" /> ICT &amp; digital services · Kano, Nigeria
+          <span className="h-px w-7 bg-primary" /> Software · Websites · Digital systems · Kano
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.08 }}
-          className="max-w-3xl font-display text-[clamp(2.65rem,11.5vw,4.5rem)] font-bold uppercase leading-[0.98] sm:text-6xl lg:text-[5.25rem] xl:text-[6.1rem] [text-wrap:balance]"
+          className="max-w-3xl font-display text-[clamp(2.65rem,11.5vw,4.5rem)] font-bold uppercase leading-[0.98] sm:text-5xl lg:text-[5.25rem] xl:text-[6.1rem] [text-wrap:balance]"
         >
-          Engineering the systems <span className="gradient-text">behind progress.</span>
+          Software &amp; websites <span className="gradient-text">built to scale.</span>
         </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.28 }}
           className="mt-6 max-w-xl"
         >
           <p className="text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg">
-            Dependable ICT infrastructure, software, project websites and brand systems for public institutions and ambitious businesses across Nigeria.
+            Custom software platforms and project websites for public institutions and ambitious businesses across Nigeria — backed by the infrastructure and creative services to deliver end to end.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button asChild size="lg" className="h-12 w-full justify-between rounded-sm px-5 text-xs uppercase tracking-[0.1em] sm:w-auto sm:justify-center">
@@ -81,7 +81,7 @@ const Hero = () => (
         </motion.div>
       </div>
 
-      <div className="order-1 h-[230px] min-w-0 sm:h-[290px] lg:order-2 lg:h-[min(72vh,640px)] lg:min-h-[480px]">
+      <div className="order-2 h-[230px] min-w-0 sm:h-[290px] lg:h-[min(72vh,640px)] lg:min-h-[480px]">
         <NetworkGlobe />
       </div>
     </div>
@@ -89,10 +89,10 @@ const Hero = () => (
 );
 
 const services = [
-  { icon: Network, title: "Network Infrastructure", desc: "Enterprise LAN/WAN, fiber backbones, VSAT, structured cabling and Wi-Fi rollouts engineered for uptime in any environment.", img: svcNetwork, tag: "01" },
-  { icon: Code2, title: "Software Development", desc: "Custom web platforms, mobile apps and back-office systems that automate the messy parts of your business.", img: svcSoftware, tag: "02" },
-  { icon: ShieldCheck, title: "Cybersecurity", desc: "Vulnerability assessments, endpoint protection, firewall hardening and incident response keeping your data sovereign.", img: svcSecurity, tag: "03" },
-  { icon: Globe, title: "Project Sites & Web", desc: "High-converting marketing sites, project microsites and e-commerce builds shipped fast — engineered for SEO and speed.", tag: "04" },
+  { icon: Code2, title: "Software Development", desc: "Custom web platforms, mobile apps and back-office systems that automate the messy parts of your business.", img: svcSoftware, tag: "01" },
+  { icon: Globe, title: "Project Sites & Web", desc: "High-converting marketing sites, project microsites and e-commerce builds shipped fast — engineered for SEO and speed.", tag: "02" },
+  { icon: Network, title: "Network Infrastructure", desc: "Enterprise LAN/WAN, fiber backbones, VSAT, structured cabling and Wi-Fi rollouts engineered for uptime in any environment.", img: svcNetwork, tag: "03" },
+  { icon: ShieldCheck, title: "Cybersecurity", desc: "Vulnerability assessments, endpoint protection, firewall hardening and incident response keeping your data sovereign.", img: svcSecurity, tag: "04" },
   { icon: Palette, title: "Branding & Identity", desc: "Logo systems, brand guidelines, visual identity and naming for organizations that want to be remembered.", tag: "05" },
   { icon: Megaphone, title: "Digital Marketing", desc: "Social campaigns, SEO, content strategy and paid media that turn attention into measurable revenue.", tag: "06" },
   { icon: Camera, title: "Creative & Media Production", desc: "Photography, videography, motion graphics and product shoots for brands that need to look the part.", tag: "07" },
